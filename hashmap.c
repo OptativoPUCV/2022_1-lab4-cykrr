@@ -58,7 +58,9 @@ void enlarge(HashMap * map) {
     Pair * head = firstMap(map);
     while(head != NULL){
         long hashvalue = hash(head->key, map->capacity);
-        map->buckets[hashvalue] = head;
+        if(map->buckets[hashvalue] == NULL || (map->buckets[hashvalue]->key != head->key) ){
+            map->buckets[hashvalue] = head;
+        }
         head = nextMap(map);
     }
     enlarge_called = 1; //no borrar (testing purposes)
