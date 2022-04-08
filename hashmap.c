@@ -56,6 +56,8 @@ HashMap * createMap(long capacity) {
     if (!map) {
         err_msg("K:No se pudo crear el mapa");
     }
+    map->capacity = capacity;
+    map->buckets = malloc(sizeof(Pair)*capacity);
     return map;
 }
 
