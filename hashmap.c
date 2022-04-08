@@ -94,6 +94,9 @@ Pair * searchMap(HashMap * this,  char * key) {
 
 Pair * firstMap(HashMap * map) {
     long i = map->current;
+    while(map->buckets[i] != NULL) { 
+        i++;
+    }
     return map->buckets[i];
 
 }
