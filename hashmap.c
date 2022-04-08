@@ -49,6 +49,7 @@ void insertMap(HashMap * map, char * key, void * value) {
     pair->value = value;
     long hashvalue = hash(key, map->capacity);
     map->buckets[hashvalue] = pair;
+    memcpy(map->buckets[hashvalue], pair, sizeof(Pair));
 }
 
 void enlarge(HashMap * map) {
