@@ -60,7 +60,6 @@ void enlarge(HashMap * map) {
         head = nextMap(map);
     }
     map->buckets = tmp_map->buckets;
-    free(tmp_map);
     enlarge_called = 1; //no borrar (testing purposes)
 }
 
