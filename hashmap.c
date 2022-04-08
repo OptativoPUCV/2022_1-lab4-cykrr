@@ -41,8 +41,10 @@ int is_equal(void* key1, void* key2){
 
 void insertMap(HashMap * map, char * key, void * value) {
     Pair pair = {key, value};
-    long hashvalue = hash(key, map->capacity);
-    memcpy(map->buckets[hashvalue], &pair, sizeof(Pair));
+
+    long i = hash(key, map->capacity);
+    while(map->buckets[i] != NULL)  i++;
+    map->buckets[i]  = createPair(key, value);
 }
 
 void enlarge(HashMap * map) {
