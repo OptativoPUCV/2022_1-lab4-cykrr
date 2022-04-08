@@ -46,8 +46,6 @@ void insertMap(HashMap * map, char * key, void * value) {
 
 void enlarge(HashMap * map) {
     enlarge_called = 1; //no borrar (testing purposes)
-
-
 }
 
 
@@ -56,6 +54,7 @@ HashMap * createMap(long capacity) {
     if (!map) {
         err_msg("K:No se pudo crear el mapa");
     }
+    map->size = 0;
     map->capacity = capacity;
     map->buckets = malloc(sizeof(Pair)*capacity);
     return map;
