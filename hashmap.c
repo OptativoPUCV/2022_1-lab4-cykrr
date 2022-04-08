@@ -54,6 +54,7 @@ void enlarge(HashMap * map) {
 HashMap * createMap(long capacity) {
     HashMap *map = (HashMap *)malloc(sizeof(HashMap));
     if (!map) {
+        err_msg("No se pudo crear el mapa");
     }
     return map;
 }
