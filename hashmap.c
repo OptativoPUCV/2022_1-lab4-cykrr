@@ -56,6 +56,7 @@ void enlarge(HashMap * map) {
     map->buckets = realloc(map->buckets, (map->capacity + (int)(map->capacity/2))*sizeof(Pair*) );
     map->capacity+=(int)(map->capacity/2);
     Pair * head = firstMap(map);
+    HashMap *tmp_map = createMap(map->capacity);
     while(head != NULL){
         long hashvalue = hash(head->key, map->capacity);
         if(map->buckets[hashvalue] == NULL || (map->buckets[hashvalue]->key != head->key) ){
