@@ -44,8 +44,7 @@ void insertMap(HashMap * this, char * key, void * value) {
     while(this->buckets[i] != NULL)  {
         if (i < this->capacity)
             i++;
-         
-            i = 0;
+        else    i = 0;
     }
     this->buckets[i]  = createPair(key, value);
     this->size++;
