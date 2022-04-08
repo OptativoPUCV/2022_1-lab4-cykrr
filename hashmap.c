@@ -49,7 +49,7 @@ void insertMap(HashMap * this, char * key, void * value) {
     this->buckets[i]  = createPair(key, value);
     this->size++;
     this->capacity--;
-    printf("[%ld]\n", i);
+//  printf("[%ld]\n", i);
 }
 
 void enlarge(HashMap * map) {
