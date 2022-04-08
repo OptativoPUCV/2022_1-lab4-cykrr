@@ -56,7 +56,6 @@ void enlarge(HashMap * map) {
     map->buckets = realloc(map->buckets, (map->capacity + (int)(map->capacity/2))*sizeof(Pair*) );
     map->capacity+=(int)(map->capacity/2);
     enlarge_called = 1; //no borrar (testing purposes)
-    enlarge_called = 1; //no borrar (testing purposes)
 }
 
 
