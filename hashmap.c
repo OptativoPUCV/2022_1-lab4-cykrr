@@ -59,6 +59,7 @@ void enlarge(HashMap * map) {
     while(head != NULL){
         long hashvalue = hash(head->key, map->capacity);
         if(map->buckets[hashvalue] == NULL || (map->buckets[hashvalue]->key != head->key) ){
+            head->key = NULL;
             map->buckets[hashvalue] = head;
         }
         head = nextMap(map);
