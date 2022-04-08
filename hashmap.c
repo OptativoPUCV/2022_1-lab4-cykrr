@@ -48,7 +48,7 @@ void insertMap(HashMap * map, char * key, void * value) {
     pair->key = key;
     pair->value = value;
     long hashvalue = hash(key, map->capacity);
-
+    map->buckets[hashvalue] = pair;
 }
 
 void enlarge(HashMap * map) {
