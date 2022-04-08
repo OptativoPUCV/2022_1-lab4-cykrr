@@ -40,10 +40,6 @@ int is_equal(void* key1, void* key2){
 
 
 void insertMap(HashMap * map, char * key, void * value) {
-    if(!pair) {
-        err_msg("K: Error: No se pudo crear el Par");
-        exit(1);
-    }
     Pair pair = {key, value};
     long hashvalue = hash(key, map->capacity);
     memcpy(map->buckets[hashvalue], &pair, sizeof(Pair));
