@@ -4,6 +4,7 @@
 #include <math.h>
 #include <ctype.h>
 #include "hashmap.h"
+#include "test.c"
 
 
 typedef struct HashMap HashMap;
@@ -52,8 +53,10 @@ void enlarge(HashMap * map) {
 
 
 HashMap * createMap(long capacity) {
-
-    return NULL;
+    HashMap *map = (HashMap *)malloc(sizeof(HashMap));
+    if (!map) {
+    }
+    return map;
 }
 
 void eraseMap(HashMap * map,  char * key) {    
