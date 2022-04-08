@@ -55,6 +55,12 @@ void insertMap(HashMap * this, char * key, void * value) {
 void enlarge(HashMap * map) {
     map->buckets = realloc(map->buckets, (map->capacity + (int)(map->capacity/2))*sizeof(Pair*) );
     map->capacity+=(int)(map->capacity/2);
+    Pair * head = firstMap(map);
+    while(head != NULL){
+        long hashvalue = hash(head->key, map->capacity);
+        map->buckets[hashvalue] = head;
+        head = nextMap(map);
+    }
     enlarge_called = 1; //no borrar (testing purposes)
 }
 
