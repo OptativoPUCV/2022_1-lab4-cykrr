@@ -53,11 +53,14 @@ HashMap * createMap(long capacity) {
     HashMap *map = (HashMap *)malloc(sizeof(HashMap));
     if (!map) {
         err_msg("K:No se pudo crear el mapa");
+        exit(1);
     }
     map->size = 0;
-    map->capacity = capacity;
     map->current = -1;
+
+    map->capacity = capacity;
     map->buckets = malloc(sizeof(Pair*)*capacity);
+
     return map;
 }
 
