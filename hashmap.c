@@ -40,16 +40,13 @@ int is_equal(void* key1, void* key2){
 
 
 void insertMap(HashMap * map, char * key, void * value) {
-    Pair *pair = createPair(key, value);
     if(!pair) {
         err_msg("K: Error: No se pudo crear el Par");
         exit(1);
     }
-    pair->key = key;
-    pair->value = value;
+    Pair pair = {key, value};
     long hashvalue = hash(key, map->capacity);
-    map->buckets[hashvalue] = pair;
-    memcpy(map->buckets[hashvalue], pair, sizeof(Pair));
+    memcpy(map->buckets[hashvalue], &pair, sizeof(Pair));
 }
 
 void enlarge(HashMap * map) {
