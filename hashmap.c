@@ -83,7 +83,7 @@ Pair * searchMap(HashMap * this,  char * key) {
         i++;
         if(i > this->capacity) return NULL;
     }
-    this->current = this->buckets[i];
+    this->current = i;
     return this->buckets[i];
     
 }
