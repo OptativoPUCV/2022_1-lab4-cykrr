@@ -4,8 +4,7 @@
 #include <math.h>
 #include <ctype.h>
 #include "hashmap.h"
-#include "test.c"
-
+#include "util.h"
 
 typedef struct HashMap HashMap;
 int enlarge_called=0;
