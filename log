@@ -159,3 +159,46 @@ test.c:14:6: nota: destination object referenced by ‘restrict’-qualified arg
 cc1: todos los avisos se tratan como errores
 Compilation failed
 d013c80
+vie 08 abr 2022 11:22:29 -04: 
+test.c: En la función ‘enlarge_test’:
+test.c:439:18: error: ‘sprintf’ argument 3 overlaps destination object ‘msg’ [-Werror=restrict]
+  439 |             else sprintf(msg,"%.100s%s  ", msg, (char*)map->buckets[i]->value);
+      |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+test.c:14:6: nota: destination object referenced by ‘restrict’-qualified argument 1 was declared here
+   14 | char msg[300];
+      |      ^~~
+test.c:438:39: error: ‘sprintf’ argument 3 overlaps destination object ‘msg’ [-Werror=restrict]
+  438 |             if(map->buckets[i]==NULL) sprintf(msg,"%.100s(null)  ",msg);
+      |                                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+test.c:14:6: nota: destination object referenced by ‘restrict’-qualified argument 1 was declared here
+   14 | char msg[300];
+      |      ^~~
+cc1: todos los avisos se tratan como errores
+Compilation failed
+0e7e517
+vie 08 abr 2022 11:23:13 -04: 
+test.c: En la función ‘enlarge_test’:
+test.c:438:39: error: ‘sprintf’ argument 3 overlaps destination object ‘msg’ [-Werror=restrict]
+  438 |             if(map->buckets[i]==NULL) sprintf(msg,"%.100s(null)  ",msg);
+      |                                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+test.c:14:6: nota: destination object referenced by ‘restrict’-qualified argument 1 was declared here
+   14 | char msg[300];
+      |      ^~~
+cc1: todos los avisos se tratan como errores
+Compilation failed
+62e73c7
+vie 08 abr 2022 11:23:34 -04: 
+test.c: En la función ‘enlarge_test’:
+test.c:438:39: error: ‘sprintf’ argument 3 overlaps destination object ‘msg’ [-Werror=restrict]
+  438 |             if(map->buckets[i]==NULL) sprintf(msg,"%.100s(null)  ",msg);
+      |                                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+test.c:14:6: nota: destination object referenced by ‘restrict’-qualified argument 1 was declared here
+   14 | char msg[300];
+      |      ^~~
+cc1: todos los avisos se tratan como errores
+Compilation failed
+e72fcc9
+vie 08 abr 2022 11:24:23 -04: 
+ tests:  0|6
+total_score: 0/70
+bbf4b14

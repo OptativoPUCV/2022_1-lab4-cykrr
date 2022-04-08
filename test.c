@@ -435,11 +435,14 @@ int enlarge_test(){
     if(map->buckets[0]->value!=value3 || map->buckets[2]!=NULL || map->buckets[12]->value != value5 || map->buckets[4]->value!=value4){
         sprintf(msg,"enlarged table is:\n");
         for(i=0;i<map->capacity;i++){
-            if(map->buckets[i]==NULL) sprintf(msg,"%.100s(null)  ",msg);
-            else sprintf(msg,"%.100s%s  ", msg, (char*)map->buckets[i]->value);
+            if(map->buckets[i]==NULL) strcat(msg," (null)  ");
+            else {
+                strcat(msg, (char*)map->buckets[i]->value);
+                strcat(msg, " ");
+            }
         }   
 
-        sprintf(msg,"%.100s\nbut should be: \nvalue3  (null)  (null)  (null)  value4  (null)  value2  value1  value0  (null)  (null)  (null)  value5  (null)  (null)  (null)  (null)  (null)  (null)  (null)",msg);
+        strcat(msg, "\nbut should be: \nvalue3  (null)  (null)  (null)  value4  (null)  value2  value1  value0  (null)  (null)  (null)  value5  (null)  (null)  (null)  (null)  (null)  (null)  (null)");
         err_msg(msg);
         return 0;
     }
