@@ -81,8 +81,10 @@ Pair * searchMap(HashMap * this,  char * key) {
     long i = hash(key, this->capacity);
     while (strcmp(key, this->buckets[i]->key) != 0){
         i++;
+        if(i > this->capacity) return NULL;
     }
-    return NULL;
+    return this->buckets[i];
+    
 }
 
 Pair * firstMap(HashMap * map) {
