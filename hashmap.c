@@ -48,10 +48,8 @@ void insertMap(HashMap * this, char * key, void * value) {
             i = 0;
     }
     this->buckets[i]  = createPair(key, value);
-    char num[3] = itoa(i);
-    sprintf()
-    err_msg("M: ")
     this->size++;
+    printf("[%d]\n", i);
 }
 
 void enlarge(HashMap * map) {
