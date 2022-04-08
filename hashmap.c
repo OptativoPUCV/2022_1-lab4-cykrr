@@ -40,6 +40,7 @@ int is_equal(void* key1, void* key2){
 
 
 void insertMap(HashMap * this, char * key, void * value) {
+    if(this->size / this->capacity >= 0.7) enlarge(this);
     long i = hash(key, this->capacity);
     while(this->buckets[i] != NULL)  {
         i++;
