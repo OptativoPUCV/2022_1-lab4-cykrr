@@ -64,7 +64,9 @@ void enlarge(HashMap * map) {
 
     Pair * head = firstMap(map);
     while(head != NULL){
+        if(head->key)
         printf("[I]: Key: %s\n", head->key);
+        if(head->value)
         printf("[I]: Value: %s\n", (char*)head->value);
         if(head->key){
             Pair pair = {head->key, head->value};
