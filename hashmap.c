@@ -55,7 +55,7 @@ void insertMap(HashMap * this, char * key, void * value) {
 void enlarge(HashMap * map) {
     map->buckets = realloc(map->buckets, ((long int)map->capacity *2)*sizeof(Pair *) );
     if(!map->buckets) exit(-1);
-    map->capacity = ((long int)map->capacity * 1.5);
+    map->capacity = ((long int)map->capacity * 2);
 
     HashMap tmpMap;
     memcpy(&tmpMap, map, sizeof(HashMap));
