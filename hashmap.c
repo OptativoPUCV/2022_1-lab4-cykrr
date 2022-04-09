@@ -53,11 +53,12 @@ void insertMap(HashMap * this, char * key, void * value) {
 }
 
 void enlarge(HashMap * map) {
-    HashMap *tmp_map = createMap(map->capacity*1.5);
     Pair * head = firstMap(map);
     while(head != NULL){
-        insertMap(tmp_map, head->key, head->value);
-        head = nextMap(map);
+        if(map->buckets[hash(head->key, map->capacity)]->key != head->key) {
+
+        }
+        insertMap(map, head->key, head->value);
     }
     map->buckets = tmp_map->buckets;
     enlarge_called = 1; //no borrar (testing purposes)
