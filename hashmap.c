@@ -60,7 +60,6 @@ void enlarge(HashMap * map) {
         }
         insertMap(map, head->key, head->value);
     }
-    map->buckets = tmp_map->buckets;
     enlarge_called = 1; //no borrar (testing purposes)
 }
 
