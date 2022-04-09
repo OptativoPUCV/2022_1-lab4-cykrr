@@ -64,7 +64,6 @@ void enlarge(HashMap * map) {
             head->key = NULL;
             insertMap(map, key, value);
         }
-        insertMap(map, head->key, head->value);
     }
     enlarge_called = 1; //no borrar (testing purposes)
 }
