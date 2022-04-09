@@ -67,7 +67,6 @@ void enlarge(HashMap * map) {
     while(head != NULL){
             printf("[I]: %s\n", head->key);
             head = nextMap(map);
-        }
     }
     map->buckets = tmpMap.buckets;
     enlarge_called = 1; //no borrar (testing purposes)
