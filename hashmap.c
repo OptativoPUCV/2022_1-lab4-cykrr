@@ -70,7 +70,7 @@ void enlarge(HashMap * map) {
             void *value = head->value;
             head->key = NULL;
             insertMap(&tmpMap, key, value);
-            nextMap(map);
+            head = nextMap(map);
         }
     free(map->buckets);
     map->buckets = tmpMap.buckets;
