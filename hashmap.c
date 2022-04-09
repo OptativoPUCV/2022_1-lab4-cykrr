@@ -69,8 +69,11 @@ void enlarge(HashMap * map) {
             char* key = head->key;
             void *value = head->value;
             head->key = NULL;
-            insertMap(map, key, value);
+            insertMap(&tmpMap, key, value);
+            nextMap(map);
         }
+    free(map->buckets);
+    map->buckets = tmpMap.buckets;
     }
     enlarge_called = 1; //no borrar (testing purposes)
 }
