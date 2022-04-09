@@ -73,8 +73,7 @@ void enlarge(HashMap * map) {
             long hashvalue = hash(head->key, map->capacity);
             printf("[I]: hash: %ld\n", hashvalue);
             if (!map->buckets[hashvalue]) {
-                map->buckets[map->current]->key = NULL;
-                map->buckets[map->current]->value = NULL;
+                map->buckets[map->current] = NULL;
                 insertMap(map, pair.key, pair.value);
 
             }
