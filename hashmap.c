@@ -73,8 +73,7 @@ void enlarge(HashMap * map) {
             head = nextMap(map);
         }
     }
-    free(map->buckets);
-    map->buckets = tmpMap.buckets;
+    memcpy(map->buckets, tmpMap.buckets, tmpMap.capacity * sizeof(Pair *));
     enlarge_called = 1; //no borrar (testing purposes)
 }
 
