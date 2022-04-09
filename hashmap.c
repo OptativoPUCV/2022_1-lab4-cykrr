@@ -10,45 +10,45 @@ typedef struct HashMap HashMap;
 int enlarge_called=0;
 
 struct HashMap {
-    Pair ** buckets;
-    long size; //cantidad de datos/pairs en la tabla
-    long capacity; //capacidad de la tabla
-    long current; //indice del ultimo dato accedido
+Pair ** buckets;
+long size; //cantidad de datos/pairs en la tabla
+long capacity; //capacidad de la tabla
+long current; //indice del ultimo dato accedido
 };
 
 Pair * createPair( char * key,  void * value) {
-    Pair * new = (Pair *)malloc(sizeof(Pair));
-    new->key = key;
-    new->value = value;
-    return new;
+Pair * new = (Pair *)malloc(sizeof(Pair));
+new->key = key;
+new->value = value;
+return new;
 }
 
 long hash( char * key, long capacity) {
-    unsigned long hash = 0;
-     char * ptr;
-    for (ptr = key; *ptr != '\0'; ptr++) {
-        hash += hash*32 + tolower(*ptr);
-    }
-    return hash%capacity;
+unsigned long hash = 0;
+ char * ptr;
+for (ptr = key; *ptr != '\0'; ptr++) {
+    hash += hash*32 + tolower(*ptr);
+}
+return hash%capacity;
 }
 
 int is_equal(void* key1, void* key2){
-    if(key1==NULL || key2==NULL) return 0;
-    if(strcmp((char*)key1,(char*)key2) == 0) return 1;
-    return 0;
+if(key1==NULL || key2==NULL) return 0;
+if(strcmp((char*)key1,(char*)key2) == 0) return 1;
+return 0;
 }
 
 
 void insertMap(HashMap * this, char * key, void * value) {
-    if(this->size / this->capacity >= 0.7) enlarge(this);
-    long i = hash(key, this->capacity);
-    while(this->buckets[i] != NULL)  {
-        i++;
-        if( i > this->capacity) i = 0;
-    }
-    this->buckets[i]  = createPair(key, value);
-    this->size++;
-    this->capacity--;
+if(this->size / this->capacity >= 0.7) enlarge(this);
+long i = hash(key, this->capacity);
+while(this->buckets[i] != NULL)  {
+    i++;
+    if( i > this->capacity) i = 0;
+}
+this->buckets[i]  = createPair(key, value);
+this->size++;
+this->capacity--;
 //  printf("[%ld]\n", i);
 }
 
@@ -60,31 +60,29 @@ void enlarge(HashMap * map) {
     HashMap tmpMap;
     memcpy(&tmpMap, map, sizeof(HashMap));
     tmpMap.buckets = (Pair**)malloc(((long int)map->capacity *2)*sizeof(Pair *) );
- 
+
 
 
     Pair * head = firstMap(map);
     while(head != NULL){
-            printf("[I]: Key: %s\n", head->key);
-            printf("[I]: Value: %s\n", (char*)head->value);
-            if(head->key){
-                Pair pair = {head->key, head->value};
-                long hashvalue = hash(head->key, map->capacity);
-                printf("[I]: hash: %ld\n", hashvalue);
-                if (!map->buckets[hashvalue]) {
-                    head->key = NULL;
-                    insertMap(map, pair.key, pair.value);
+        printf("[I]: Key: %s\n", head->key);
+        printf("[I]: Value: %s\n", (char*)head->value);
+        if(head->key){
+            Pair pair = {head->key, head->value};
+            long hashvalue = hash(head->key, map->capacity);
+            printf("[I]: hash: %ld\n", hashvalue);
+            if (!map->buckets[hashvalue]) {
+                head->key = NULL;
+                insertMap(map, pair.key, pair.value);
 
-                }
             }
-                
-            else
-                printf("[I]: hash: NULL\n"); 
+         } else
+            printf("[I]: hash: NULL\n"); 
 
-            head = nextMap(map);
-    }
-    
-    enlarge_called = 1; //no borrar (testing purposes)
+        head = nextMap(map);
+}
+
+enlarge_called = 1; //no borrar (testing purposes)
 }
 
 
