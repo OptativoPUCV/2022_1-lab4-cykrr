@@ -48,7 +48,6 @@ while(this->buckets[i] != NULL)  {
 }
 this->buckets[i]  = createPair(key, value);
 this->size++;
-this->capacity--;
 //  printf("[%ld]\n", i);
 }
 
