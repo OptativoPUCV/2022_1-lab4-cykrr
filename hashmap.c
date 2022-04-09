@@ -72,9 +72,9 @@ void enlarge(HashMap * map) {
             insertMap(&tmpMap, key, value);
             head = nextMap(map);
         }
+    }
     free(map->buckets);
     map->buckets = tmpMap.buckets;
-    }
     enlarge_called = 1; //no borrar (testing purposes)
 }
 
