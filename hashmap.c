@@ -53,13 +53,13 @@ this->capacity--;
 }
 
 void enlarge(HashMap * map) {
-    map->buckets = realloc(map->buckets, ((long int)map->capacity *2)*sizeof(Pair *) );
+    map->buckets = realloc(map->buckets, (map->capacity *2)*sizeof(Pair *) );
     if(!map->buckets) exit(-1);
-    map->capacity = ((long int)map->capacity * 2);
+    map->capacity = map->capacity * 2;
 
     HashMap tmpMap;
     memcpy(&tmpMap, map, sizeof(HashMap));
-    tmpMap.buckets = (Pair**)malloc(((long int)map->capacity *2)*sizeof(Pair *) );
+    tmpMap.buckets = (Pair**)malloc((map->capacity *2)*sizeof(Pair *) );
 
 
 
