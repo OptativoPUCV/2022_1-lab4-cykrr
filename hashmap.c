@@ -40,7 +40,7 @@ return 0;
 
 
 void insertMap(HashMap * this, char * key, void * value) {
-if(this->size / this->capacity >= 0.7) enlarge(this);
+//if(this->size / this->capacity >= 0.7) enlarge(this);
 long i = hash(key, this->capacity);
 while(this->buckets[i] != NULL)  {
     i++;
