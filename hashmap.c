@@ -58,7 +58,7 @@ void enlarge(HashMap * map) {
     map->capacity = ((long int)map->capacity * 1.5);
     Pair * head = firstMap(map);
     while(head != NULL){
-        if(map->buckets[hash(head->key, map->capacity)]->key != head->key) {
+        if(!map->buckets[hash(head->key, map->capacity)] || map->buckets[hash(head->key, map->capacity)]->key != head->key) {
             char* key = head->key;
             void *value = head->value;
             head->key = NULL;
