@@ -58,7 +58,7 @@ void enlarge(HashMap * map) {
     map->capacity = ((long int)map->capacity * 1.5);
 
     HashMap tmpMap;
-    memcpy(map, &tmpMap, sizeof(HashMap));
+    memcpy(&tmpMap, map, sizeof(HashMap));
     tmpMap.buckets = (Pair**)malloc(((long int)map->capacity *1.5)*sizeof(Pair *) );
  
 
