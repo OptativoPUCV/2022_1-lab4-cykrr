@@ -63,9 +63,8 @@ void enlarge(HashMap * map) {
             char* key = head->key;
             void *value = head->value;
             head->key = NULL;
-            insertMap(map, key, value);
-        } else if (head->key == NULL) {
-            continue;
+            if(key)
+                insertMap(map, key, value);
         }
     }
     enlarge_called = 1; //no borrar (testing purposes)
