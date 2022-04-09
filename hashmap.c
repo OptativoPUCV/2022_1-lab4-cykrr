@@ -66,6 +66,7 @@ void enlarge(HashMap * map) {
     Pair * head = firstMap(map);
     while(head != NULL){
             printf("[I]: Key: %s\n", head->key);
+            printf("[I]: Value: %s\n", head->value);
             if(head->key){
                 Pair pair = {head->key, head->value};
                 long hashvalue = hash(head->key, map->capacity);
