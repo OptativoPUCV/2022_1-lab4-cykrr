@@ -54,6 +54,8 @@ void insertMap(HashMap * this, char * key, void * value) {
 
 void enlarge(HashMap * map) {
     map->buckets = realloc(map->buckets, ((int)map->capacity *1.5)*sizeof(Pair *) );
+    if(!map->buckets) exit(-1);
+    map->capacity = ((int)map->capacity * 1.5);
     Pair * head = firstMap(map);
     while(head != NULL){
         if(map->buckets[hash(head->key, map->capacity)]->key != head->key) {
