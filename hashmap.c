@@ -66,10 +66,14 @@ void enlarge(HashMap * map) {
     Pair * head = firstMap(map);
     while(head != NULL){
             printf("[I]: Key: %s\n", head->key);
-            if(head->key)
+            if(head->key){
                 printf("[I]: hash: %ld\n", hash(head->key, map->capacity));
+                insertMap(&tmpMap, head->key, head->value);
+            }
+                
             else
                 printf("[I]: hash: NULL\n"); 
+
             head = nextMap(map);
     }
     map->buckets = tmpMap.buckets;
